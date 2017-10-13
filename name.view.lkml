@@ -82,4 +82,33 @@ view: name {
     type: count
     drill_fields: [id, person_name, gender, title.count]
   }
+
+  measure: person_count_female {
+    type: count
+    drill_fields: [id, person_name, gender, title.count]
+    filters: {
+      field: gender
+      value: "f"
+    }
+  }
+
+  measure: person_count_male {
+    type: count
+    drill_fields: [id, person_name, gender, title.count]
+    filters: {
+      field: gender
+      value: "m"
+    }
+  }
+
+  measure: person_count_with_gender {
+    sql:  ${person_count_male} + ${person_count_female} ;;
+  }
+
+
+  measure: person_percentage_female {
+    type: number
+    sql: 1.0 * ${person_count_female} / NULLIF(${person_count_with_gender},0) ;;
+    value_format_name: percent_2
+  }
 }
