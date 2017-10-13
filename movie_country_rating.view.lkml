@@ -19,6 +19,7 @@ view: movie_country_rating {
   dimension: country {}
   dimension: movie_rating {
     description: "Motion Picture Association of America film rating system - Example: 'PG-13'"
+    sql: ${TABLE}.rating ;;
   }
   dimension: country_rating {}
 }
