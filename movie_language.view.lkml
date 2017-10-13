@@ -10,6 +10,10 @@ view: movie_language {
        ;;
   }
 
+  measure: language_count {
+    type: count
+  }
+
   dimension: movie_id {
     hidden: yes
   }
