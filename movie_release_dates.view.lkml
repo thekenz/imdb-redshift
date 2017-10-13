@@ -58,8 +58,18 @@ view: movie_release_dates {
 
   dimension_group: release {
     type: time
-    timeframes: [date, week, month, year]
+    timeframes: [date, week, month, year, month_num, month_name]
     sql: ${TABLE}.release_date ;;
+  }
+
+  dimension: is_summer_movie {
+    type: yesno
+    sql: ${release_month_name} = 'May' OR ${release_month_name} = 'June' ;;
+  }
+
+  dimension: is_winter_movie {
+    type: yesno
+    sql: ${release_month_name} = 'November' OR ${release_month_name} = 'December' ;;
   }
 
   dimension: kind {}
