@@ -10,7 +10,7 @@ view: movie_language {
        ;;
   }
 
-  measure: language_count {
+  measure: movie_language_count {
     type: count
   }
 
