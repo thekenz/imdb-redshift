@@ -72,6 +72,20 @@ view: movie_release_dates {
     sql: ${release_month_name} = 'November' OR ${release_month_name} = 'December' ;;
   }
 
+  dimension: movie_period {
+    case: {
+      when: {
+        sql: ${release_month_name} = 'November' OR ${release_month_name} = 'December' ;;
+        label: "winter"
+      }
+      when: {
+        sql: ${release_month_name} = 'May' OR ${release_month_name} = 'June' ;;
+        label: "summer"
+      }
+      else: "other"
+    }
+  }
+
   dimension: kind {}
 
   dimension: index {
