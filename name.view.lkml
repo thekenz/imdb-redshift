@@ -94,7 +94,7 @@ view: name {
 
   measure: person_percentage_female {
     type: number
-    sql: ${person_count_female} / NULLIF(${person_count},0) ;;
+    sql: 1.0 * ${person_count_female} / NULLIF(${person_count},0) ;;
     value_format_name: percent_2
   }
 }
