@@ -1,7 +1,7 @@
 view: title_extra {
   measure: revenue_over_budget {
     type: number
-    sql: ${movie_revenue.total_revenue} / ${movie_budget.total_budget} ;;
+    sql: ${movie_revenue.total_revenue} / NULLIF(${movie_budget.total_budget}, 0) ;;
     value_format_name: decimal_4
   }
 }
