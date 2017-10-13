@@ -17,6 +17,8 @@ view: movie_country_rating {
   }
 
   dimension: country {}
-  dimension: rating {}
+  dimension: movie_rating {
+    description: "Motion Picture Association of America film rating system - Example: 'PG-13'"
+  }
   dimension: country_rating {}
 }
