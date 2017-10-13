@@ -11,12 +11,15 @@ view: movie_language {
   }
 
   measure: movie_language_count {
-    type: count
+    type: count_distinct
+    sql: ${language} ;;
+    drill_fields: [language]
   }
 
   dimension: movie_id {
     hidden: yes
   }
 
-  dimension: language {}
+  dimension: language {
+  }
 }
